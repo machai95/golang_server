@@ -8,6 +8,11 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+var uid int
+var username string
+var pass string
+var created time.Time
+
 func main() {
 	fmt.Printf("Creat database")
 	database, _ :=
@@ -18,15 +23,17 @@ func main() {
 		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(64) NULL, password VARCHAR(64) NULL, timecreate DATE NULL)")
 	statement.Exec()
 	fmt.Println("---> done")
-	fmt.Printf("Insert data into table user")
-	statement, err :=
-		database.Prepare("INSERT INTO users (username, password,timecreate) VALUES (?, ?,?)")
-	if err != nil {
-		fmt.Printf("Error : ")
-		fmt.Println(err)
-	}
-	statement.Exec("Haimd", "123456", "2012-12-09")
-	fmt.Println("---> done")
+	//---------------- INSERT ----------------------
+	// fmt.Printf("Insert data into table user")
+	// statement, err :=
+	// 	database.Prepare("INSERT INTO users (username, password,timecreate) VALUES (?, ?,?)")
+	// if err != nil {
+	// 	fmt.Printf("Error : ")
+	// 	fmt.Println(err)
+	// }
+	// statement.Exec("Haimd", "123456", "2012-12-09")
+	// fmt.Println("---> done")
+	//----------------- QUERY ---------------------
 	fmt.Printf("Query data into table users")
 	rows, err :=
 		database.Query("SELECT * FROM users")
@@ -34,12 +41,6 @@ func main() {
 		fmt.Println(err)
 	} else {
 		fmt.Println("---> done")
-
-		var uid int
-		var username string
-		var pass string
-		var created time.Time
-
 		for rows.Next() {
 			err = rows.Scan(&uid, &username, &pass, &created)
 			if err != nil {
@@ -59,5 +60,5 @@ func main() {
 		rows.Close() //good habit to close
 
 	}
-
+	db.Close()
 }
