@@ -34,10 +34,11 @@ func main() {
 		fmt.Println(err)
 	} else {
 		fmt.Println("---> done")
+		fmt.Println(rows)
 		var id int
 		var user string
 		var pass int
-
+		fmt.Println(rows.Next())
 		for rows.Next() {
 			rows.Scan(&id, &user, &pass)
 			fmt.Println(strconv.Itoa(id) + ": " + user + " " + strconv.Itoa(pass))
