@@ -15,7 +15,7 @@ func main() {
 	fmt.Println("---> done")
 	fmt.Printf("Create table user")
 	statement, _ :=
-		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password INTEGER, timecreat DATETIME DEFAULT CURRENT_TIMESTAMP)")
+		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password INTEGER, timecreat TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
 	statement.Exec()
 	fmt.Println("---> done")
 	fmt.Printf("Insert data into table user")
