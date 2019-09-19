@@ -1,0 +1,22 @@
+{
+	"description" : "The very first of its kind. It plays song and has interactive display (click handprint for play/pause music)\n\n- Made with css and javascript coding. (no flash player required)\n- Plays 3 different soundtrack from tokyo ghoul.\n- Volumn adjustment button\n- 4 different wallpaper that change simultaneously.\n- one click play pause\n- Classic digital clock.\n- Runs smoothly on any pc. best aspect ratio 16:9\n- Interactive effect on mouse pointer.\n\n\nIT'S JUST FOR FUN. DON'T FORGET TO RATE SHARE AND FOLLOW. ENJOY!!",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Anime" ],
+	"title" : "Tokyo Ghoul (V.2) - most amazing web wallpaper (updated with one click music play/pause and volume adjustment button)",
+	"type" : "web",
+	"visibility" : "public"
+}

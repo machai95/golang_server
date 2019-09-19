@@ -1,0 +1,17 @@
+{
+  "server": [
+    {
+      "name":"MQTT local",
+      "host":"tcp://localhost:1883",
+      "user":"beetai",
+      "pass":"Admin@123"
+    }
+    ],
+  "client": [
+      {
+        "name": "Door 1",
+        "topic": "device/gpio/1",
+        "active": 1
+      }
+    ]
+}
