@@ -15,17 +15,17 @@ func main() {
 	fmt.Println("---> done")
 	fmt.Printf("Create table user")
 	statement, _ :=
-		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password INTEGER,timecreat DATETIME CURRENT_TIMESTAMP)")
+		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password INTEGER, timecreat DATETIME DEFAULT CURRENT_TIMESTAMP)")
 	statement.Exec()
 	fmt.Println("---> done")
 	fmt.Printf("Insert data into table user")
 	statement, err :=
-		database.Prepare("INSERT INTO users (username, password,timecreat) VALUES (?, ?,?)")
+		database.Prepare("INSERT INTO users (username, password) VALUES (?, ?)")
 	if err != nil {
 		fmt.Printf("Error : ")
 		fmt.Println(err)
 	}
-	statement.Exec("Haimd", "123456", "datetime()")
+	statement.Exec("Haimd", "123456")
 	fmt.Println("---> done")
 	fmt.Printf("Query data into table user")
 	rows, _ :=
