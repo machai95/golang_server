@@ -36,7 +36,7 @@ func main() {
 		fmt.Println("---> done")
 		var id int
 		var user string
-		var pass string
+		var pass int
 
 		for rows.Next() {
 			rows.Scan(&id, &user, &pass)
