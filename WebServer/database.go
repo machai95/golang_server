@@ -19,8 +19,11 @@ func main() {
 	statement.Exec()
 	fmt.Println("---> done")
 	fmt.Printf("Insert data into table user")
-	statement, _ =
+	statement, err :=
 		database.Prepare("INSERT INTO users (username, password) VALUES (?, ?,?,?)")
+	if err != nil {
+		fmt.Println(err)
+	}
 	statement.Exec("Haimd", "123456")
 	fmt.Println("---> done")
 	fmt.Printf("Query data into table user")
