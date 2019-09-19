@@ -1,6 +1,7 @@
 package main
 
 import (
+	"GoServer/WebServer/database"
 	"crypto/md5"
 	"crypto/rand"
 	"fmt"
@@ -155,12 +156,20 @@ func login(w http.ResponseWriter, r *http.Request) {
 		// logic part of log in
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
-		if r.Form["username"][0] == "macduyhai" ||r.Form["username"][0] == "sontv"{
+		if r.Form["username"][0] == "macduyhai" || r.Form["username"][0] == "sontv" {
 			upload1(w, r)
 			fmt.Println("ok")
 		} else {
 			http.FileServer(http.Dir("./static"))
 		}
+
+		if database.CheckUser(r.Form["username"][0], r.Form["userpasswordname"][0]) == true {
+			upload1(w, r)
+			fmt.Println("ok")
+		} else {
+			http.FileServer(http.Dir("./static"))
+		}
+
 	}
 }
 
