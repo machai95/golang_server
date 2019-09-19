@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"strconv"
+	"time"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -15,19 +15,19 @@ func main() {
 	fmt.Println("---> done")
 	fmt.Printf("Create table user")
 	statement, _ :=
-		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password INTEGER, timecreat TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
+		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(64) NULL, password VARCHAR(64) NULL, timecreate DATE NULL)")
 	statement.Exec()
 	fmt.Println("---> done")
 	fmt.Printf("Insert data into table user")
 	statement, err :=
-		database.Prepare("INSERT INTO users (username, password) VALUES (?, ?)")
+		database.Prepare("INSERT INTO users (username, password,timecreate) VALUES (?, ?,?)")
 	if err != nil {
 		fmt.Printf("Error : ")
 		fmt.Println(err)
 	}
-	statement.Exec("Haimd", "123456")
+	statement.Exec("Haimd", "123456", "2012-12-09")
 	fmt.Println("---> done")
-	fmt.Printf("Query data into table user")
+	fmt.Printf("Query data into table users")
 	rows, err :=
 		database.Query("SELECT * FROM users")
 	if err != nil {
@@ -35,14 +35,25 @@ func main() {
 	} else {
 		fmt.Println("---> done")
 		fmt.Println(rows)
-		var id int
-		var user string
-		var pass int
-		fmt.Println(rows.Next())
+		var uid int
+		var username string
+		var pass string
+		var created time.Time
+
 		for rows.Next() {
-			rows.Scan(&id, &user, &pass)
-			fmt.Println(strconv.Itoa(id) + ": " + user + " " + strconv.Itoa(pass))
+			err = rows.Scan(&uid, &username, &pass, &created)
+			if err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Println(uid)
+				fmt.Println(username)
+				fmt.Println(pass)
+				fmt.Println(created)
+			}
+
 		}
+
+		rows.Close() //good habit to close
 
 	}
 
