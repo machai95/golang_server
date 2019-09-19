@@ -28,16 +28,21 @@ func main() {
 	statement.Exec("Haimd", "123456")
 	fmt.Println("---> done")
 	fmt.Printf("Query data into table user")
-	rows, _ :=
+	rows, err :=
 		database.Query("SELECT id, username, password, timecreat FROM users")
-	fmt.Println("---> done")
-	var id int
-	var user string
-	var pass string
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("---> done")
+		var id int
+		var user string
+		var pass string
 
-	for rows.Next() {
-		rows.Scan(&id, &user, &pass)
-		fmt.Println(strconv.Itoa(id) + ": " + user + " " + pass)
+		for rows.Next() {
+			rows.Scan(&id, &user, &pass)
+			fmt.Println(strconv.Itoa(id) + ": " + user + " " + strconv.Itoa(pass))
+		}
+
 	}
 
 }
