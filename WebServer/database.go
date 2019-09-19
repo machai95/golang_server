@@ -29,7 +29,7 @@ func main() {
 	fmt.Println("---> done")
 	fmt.Printf("Query data into table user")
 	rows, err :=
-		database.Query("SELECT id, username, password, timecreat FROM users")
+		database.Query("SELECT * FROM users")
 	if err != nil {
 		fmt.Println(err)
 	} else {
