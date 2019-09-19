@@ -34,7 +34,7 @@ func main() {
 		fmt.Println(err)
 	} else {
 		fmt.Println("---> done")
-		fmt.Println(rows)
+
 		var uid int
 		var username string
 		var pass string
@@ -45,9 +45,12 @@ func main() {
 			if err != nil {
 				fmt.Println(err)
 			} else {
-				fmt.Println(uid)
-				fmt.Println(username)
-				fmt.Println(pass)
+				fmt.Print(uid)
+				fmt.Print("\t")
+				fmt.Print(username)
+				fmt.Print("\t")
+				fmt.Print(pass)
+				fmt.Print("\t")
 				fmt.Println(created)
 			}
 
