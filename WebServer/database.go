@@ -21,7 +21,7 @@ func main() {
 	fmt.Printf("Insert data into table user")
 	statement, _ =
 		database.Prepare("INSERT INTO users (username, password) VALUES (?, ?,?,?)")
-	statement.Exec("Haimd", "123456", "datetime()")
+	statement.Exec("Haimd", "123456")
 	fmt.Println("---> done")
 	fmt.Printf("Query data into table user")
 	rows, _ :=
