@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GoServer/WebServer/database"
+	"godatabase"
 	"crypto/md5"
 	"crypto/rand"
 	"fmt"
