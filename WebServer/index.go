@@ -165,15 +165,15 @@ func login(w http.ResponseWriter, r *http.Request) {
 		// } else {
 		// 	http.FileServer(http.Dir("./static"))
 		// }
-		fmt.Printf("Kieu username %T: ", r.Form["username"])
-		fmt.Printf("Kieu password %T: ", r.Form["password"])
-		if godatabase.CheckUser(r.Form["username"][len(r.Form["username"])-1], r.Form["userpasswordname"][len(r.Form["username"])-1]) == true {
-			upload1(w, r)
-			fmt.Println("ok")
-		} else {
-			http.FileServer(http.Dir("./static"))
-			fmt.Println("Sai username or password")
-		}
+		fmt.Printf("Len %v: ", len(r.Form["username"]))
+		fmt.Printf("Len-1 %v: ", len(r.Form["username"])-1)
+		// if godatabase.CheckUser(r.Form["username"][len(r.Form["username"])-1], r.Form["userpasswordname"][len(r.Form["username"])-1]) == true {
+		// 	upload1(w, r)
+		// 	fmt.Println("ok")
+		// } else {
+		// 	http.FileServer(http.Dir("./static"))
+		// 	fmt.Println("Sai username or password")
+		// }
 		fmt.Println("end function login")
 
 	}
