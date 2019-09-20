@@ -167,6 +167,9 @@ func login(w http.ResponseWriter, r *http.Request) {
 		// }
 		fmt.Printf("Len %v: ", len(r.Form["username"]))
 		fmt.Printf("Len-1 %v: ", len(r.Form["username"])-1)
+		fmt.Println("username:", r.Form["username"][len(r.Form["username"])-1])
+		fmt.Println("password:", r.Form["password"][len(r.Form["username"])-1])
+
 		// if godatabase.CheckUser(r.Form["username"][len(r.Form["username"])-1], r.Form["userpasswordname"][len(r.Form["username"])-1]) == true {
 		// 	upload1(w, r)
 		// 	fmt.Println("ok")
