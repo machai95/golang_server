@@ -23,6 +23,7 @@ func CreateDB() {
 		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(64) NULL, password VARCHAR(64) NULL, timecreate DATE NULL)")
 	statement.Exec()
 	fmt.Println("---> done")
+	database.Close()
 	//---------------- INSERT ----------------------
 	// fmt.Printf("Insert data into table user")
 	// statement, err :=

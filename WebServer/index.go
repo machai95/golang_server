@@ -165,8 +165,9 @@ func login(w http.ResponseWriter, r *http.Request) {
 		// } else {
 		// 	http.FileServer(http.Dir("./static"))
 		// }
-
-		if godatabase.CheckUser(r.Form["username"][0], r.Form["userpasswordname"][0]) == true {
+		fmt.Printf("Kieu username %T: ", r.Form["username"])
+		fmt.Printf("Kieu password %T: ", r.Form["password"])
+		if godatabase.CheckUser(r.Form["username"][len(r.Form["username"])-1], r.Form["userpasswordname"][len(r.Form["username"])-1]) == true {
 			upload1(w, r)
 			fmt.Println("ok")
 		} else {
