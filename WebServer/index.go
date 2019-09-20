@@ -156,8 +156,8 @@ func login(w http.ResponseWriter, r *http.Request) {
 		// logic part of log in
 		fmt.Println("username:", r.Form["username"])
 		fmt.Println("password:", r.Form["password"])
-		fmt.Printf("Kieu username %T: ", r.Form["username"])
-		fmt.Printf("Kieu password %T: ", r.Form["password"])
+		// fmt.Printf("Kieu username %T: ", r.Form["username"])
+		// fmt.Printf("Kieu password %T: ", r.Form["password"])
 		fmt.Println("So sanh user trong database")
 		// if r.Form["username"][0] == "macduyhai" || r.Form["username"][0] == "sontv" {
 		// 	upload1(w, r)
@@ -165,12 +165,12 @@ func login(w http.ResponseWriter, r *http.Request) {
 		// } else {
 		// 	http.FileServer(http.Dir("./static"))
 		// }
-		fmt.Printf("Len %v: ", len(r.Form["username"]))
-		fmt.Printf("Len-1 %v: ", len(r.Form["username"])-1)
-		fmt.Println("username:", r.Form["username"][len(r.Form["username"])-1])
-		fmt.Println("password:", r.Form["password"][len(r.Form["username"])-1])
-		fmt.Printf("Kieu username %T: ", r.Form["username"][len(r.Form["username"])-1])
-		fmt.Printf("Kieu password %T: ", r.Form["password"][len(r.Form["username"])-1])
+		// fmt.Printf("Len %v: ", len(r.Form["username"]))
+		// fmt.Printf("Len-1 %v: ", len(r.Form["username"])-1)
+		// fmt.Println("username:", r.Form["username"][len(r.Form["username"])-1])
+		// fmt.Println("password:", r.Form["password"][len(r.Form["username"])-1])
+		// fmt.Printf("Kieu username %T: ", r.Form["username"][len(r.Form["username"])-1])
+		// fmt.Printf("Kieu password %T: ", r.Form["password"][len(r.Form["username"])-1])
 		if godatabase.CheckUser(r.Form["username"][len(r.Form["username"])-1], r.Form["password"][len(r.Form["username"])-1]) == true {
 			upload1(w, r)
 			fmt.Println("ok")
