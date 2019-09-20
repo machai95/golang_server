@@ -13,8 +13,7 @@ var username string
 var pass string
 var created time.Time
 
-func CheckUser(userclient string, passclient string) bool {
-	var stt = false
+func CreateDB() {
 	fmt.Printf("Creat database")
 	database, _ :=
 		sql.Open("sqlite3", "./users.db")
@@ -34,6 +33,12 @@ func CheckUser(userclient string, passclient string) bool {
 	// }
 	// statement.Exec("Haimd", "123456", "2012-12-09")
 	// fmt.Println("---> done")
+}
+func CheckUser(userclient string, passclient string) bool {
+	var stt = false
+	database, _ :=
+		sql.Open("sqlite3", "./users.db")
+	fmt.Println("---> done")
 	//----------------- QUERY ---------------------
 	fmt.Printf("Query data into table users")
 	rows, err :=

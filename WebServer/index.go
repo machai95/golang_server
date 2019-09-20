@@ -177,6 +177,7 @@ func Download(w http.ResponseWriter, r *http.Request) {
 
 }
 func main() {
+	godatabase.CreateDB()
 	// http.HandleFunc("/", index) // setting router rule
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/login", login)
