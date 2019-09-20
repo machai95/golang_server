@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GoServer/WebServer/database"
+	"GoServer/WebServer/godatabase"
 	"crypto/md5"
 	"crypto/rand"
 	"fmt"
@@ -163,7 +163,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 			http.FileServer(http.Dir("./static"))
 		}
 
-		if database.CheckUser(r.Form["username"][0], r.Form["userpasswordname"][0]) == true {
+		if godatabase.CheckUser(r.Form["username"][0], r.Form["userpasswordname"][0]) == true {
 			upload1(w, r)
 			fmt.Println("ok")
 		} else {

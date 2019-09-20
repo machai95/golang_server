@@ -1,4 +1,4 @@
-package database
+package godatabase
 
 import (
 	"database/sql"
