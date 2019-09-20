@@ -14,11 +14,11 @@ var pass string
 var created time.Time
 
 func CreateDB() {
-	fmt.Printf("Creat database")
+	fmt.Printf("Connect database")
 	database, _ :=
 		sql.Open("sqlite3", "./users.db")
 	fmt.Println("---> done")
-	fmt.Printf("Create table user")
+	fmt.Printf("Create table user if not exits")
 	statement, _ :=
 		database.Prepare("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(64) NULL, password VARCHAR(64) NULL, timecreate DATE NULL)")
 	statement.Exec()
