@@ -119,6 +119,14 @@
         function closeForm() {
             document.getElementById("myForm").style.display = "none";
         }
+
+        function openForm1() {
+            document.getElementById("myForm1").style.display = "block";
+        }
+
+        function closeForm1() {
+            document.getElementById("myForm1").style.display = "none";
+        }
     </script>
     <script>
         setInterval(function() {
@@ -159,7 +167,7 @@
 
                 <div class="form-popup" id="myForm">
                     <form action="/login" class="form-container" method="post">
-                        <h1>Login</h1>
+                        <h5>Login</h5>
 
                         <label for="email" style="color: black"><b>Email</b></label>
                         <input type="text" placeholder="" name="username" required>
@@ -169,6 +177,22 @@
 
                         <button type="submit" class="btn" value="login">Login</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+                <button class="open-button-1" onclick="openForm1()">SignIn</button>
+
+                <div class="form-popup" id="myForm1">
+                    <form action="/signin" class="form-container" method="post">
+                        <h5>Login</h5>
+
+                        <label for="email" style="color: black"><b>Email</b></label>
+                        <input type="text" placeholder="" name="username" required>
+
+                        <label for="psw" style="color: black"><b>Password</b></label>
+                        <input type="password" placeholder="" name="password" required>
+
+                        <button type="submit" class="btn" value="signin">SignIn</button>
+                        <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
                     </form>
                 </div>
                 <p><input type="button" onclick="playPause()" value=""><span style="color:white">Website for upload/down load file </span>

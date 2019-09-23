@@ -35,6 +35,22 @@ func CreateDB() {
 	// statement.Exec("Haimd", "123456", "2012-12-09")
 	// fmt.Println("---> done")
 }
+func InsertDB(userclient string, passclient string) error {
+	database, _ :=
+		sql.Open("sqlite3", "./users.db")
+	//---------------- INSERT ----------------------
+	fmt.Printf("Insert data into table user")
+	statement, err :=
+		database.Prepare("INSERT INTO users (username, password,timecreate) VALUES (?, ?,?)")
+	if err != nil {
+		fmt.Printf("Error : ")
+		fmt.Println(err)
+	}
+	t := time.Now().Format("2006-01-02 15:04:05")
+	statement.Exec(userclient, passclient, t)
+	fmt.Println("---> done")
+	return err
+}
 func CheckUser(userclient string, passclient string) bool {
 	var stt = false
 	database, _ :=

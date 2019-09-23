@@ -183,6 +183,22 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func SignIn(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("method:", r.Method) //get request method
+	if r.Method == "GET" {
+		//t, _ := template.ParseFiles("login.gtpl")
+		//t.Execute(w, nil)
+	} else {
+		// fmt.Println("hello")
+		r.ParseForm()
+		// logic part of log in
+		fmt.Println("username:", r.Form["username"])
+		fmt.Println("password:", r.Form["password"])
+		_ = godatabase.InsertDB(r.Form["username"][len(r.Form["username"])-1], r.Form["password"][len(r.Form["username"])-1])
+		fmt.Println("end function login")
+
+	}
+}
 func Download(w http.ResponseWriter, r *http.Request) {
 
 }
@@ -191,6 +207,7 @@ func main() {
 	// http.HandleFunc("/", index) // setting router rule
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/login", login)
+	http.HandleFunc("/signin", SignIn)
 	http.HandleFunc("/upload", upload)
 	http.HandleFunc("/download", Download)
 
